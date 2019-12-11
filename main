@@ -1,0 +1,114 @@
+#include <iostream>
+#include <conio.h>
+#include "header_stack.h"
+#include "program_queue.h"
+
+
+using namespace std;
+
+void menuStack() {
+	cout << "		Program Pendataan Peserta Seminar PRJ VII Metode Stack" << endl << endl;
+	cout << "Menu. " << endl;
+	cout << " 1. Masukan ID Peserta \n";
+	cout<<" 2. ID Peserta yang akan keluar \n";
+	cout<<" 3. Exit \n";
+	cout << "Choice : ";
+}
+
+void menuQueue() {
+	cout << "		Program Pendataan Peserta Seminar PRJ VII Metode Queue" << endl << endl;
+	cout << "Menu. " << endl;
+	cout << " 1. Masukan ID Peserta \n";
+	cout<<" 2. ID Peserta yang akan keluar \n";
+	cout<<" 3. Exit \n";
+//	cout << "Choice : ";
+}
+
+
+int main () {
+	Stack s;
+		Queue q;
+
+	int yn;
+	
+	do {
+		int menuChoice, choice;
+		cout << "List Menu  : \n";
+		cout<<"1. Stack \n";
+		cout<<"2. Queue" << endl;
+		cin >> menuChoice;
+		system("cls");
+		menuStack();
+		switch (menuChoice) {
+			case 1 :
+				do {
+					cout << "Choice : ";
+					
+					cin >> choice;
+					switch(choice) {
+						case 1 :
+							int data;
+							cout << "Masukkan id peserta = ";
+							cin >> data;
+							s.push(data);
+							menuStack();
+							s.display();
+							break;
+						case 2 :
+							s.pop();
+							menuStack();
+							s.display();
+							break;
+						case 3:
+							break;
+						default :
+							cout << "pilihan salah" << endl;
+							break;
+					}
+					
+				} while (choice != 3);
+				break;
+
+			case 2 :
+			do {
+					{
+					cout << "Choice : ";
+					
+					cin >> choice;
+				}
+						
+					switch(choice) {
+						case 1 :
+						int data;
+							cout << "Masukkan id peserta = ";
+							cin >> data;
+							q.enqueue(data);
+							menuQueue();
+							q.display();
+							break;
+						case 2 :
+							q.dequeue();
+							menuQueue();
+							q.display();
+							break;
+						case 3 :
+						
+							break;
+						default :
+							cout << "Invalid Code" << endl;
+					}
+//					getch();
+//					system("cls");
+
+				} while (choice != 3);
+				break;
+			default :
+				cout << "Invalid code" << endl;
+		}
+		cout << "Lagi (1. lanjut/2. tidak)? "; cin >> yn;
+		cout<<endl;
+	} while (yn == 1);
+		s.display();
+		
+	return 0;
+}
